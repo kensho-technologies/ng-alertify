@@ -17,6 +17,22 @@
 [ng-alertify-devdependencies-image]: https://david-dm.org/kensho/ng-alertify/dev-status.png
 [ng-alertify-devdependencies-url]: https://david-dm.org/kensho/ng-alertify#info=devDependencies
 
+## Install and use
+
+`npm install ng-alertify --save` or `bower install ng-alertify`.
+Include the `ng-alertify.js` script in your page and use `Alertify` module and dependency
+
+```js
+angular.module('MyApp', ['Alertify'])
+  .run(function (Alertify) {
+    Alertify.success('Hello world!');
+    Alertify.log('Neutral message');
+    Alertify.error('Something went wrong');
+  });
+```
+
+Tested with [alertify.js](http://fabien-d.github.io/alertify.js/) v0.3.11
+
 ## License
 
 Author: Kensho &copy; 2015
