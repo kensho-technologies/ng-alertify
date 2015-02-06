@@ -45,5 +45,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', ['karma']);
   grunt.registerTask('default',
-    ['nice-package', 'deps-ok', 'sync', 'jshint']);
+    ['nice-package', 'deps-ok', 'sync', 'jshint', 'test']);
 };
