@@ -1,6 +1,6 @@
 {
   "name": "ng-alertify",
-  "main": "ng-describe.js",
+  "main": "ng-alertify.js",
   "version": "0.0.1",
   "license": "MIT",
   "ignore": [
