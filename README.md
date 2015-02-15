@@ -17,6 +17,8 @@
 [ng-alertify-devdependencies-image]: https://david-dm.org/kensho/ng-alertify/dev-status.png
 [ng-alertify-devdependencies-url]: https://david-dm.org/kensho/ng-alertify#info=devDependencies
 
+[Demo](http://kensho.github.io/ng-alertify/)
+
 ## Install and use
 
 `npm install ng-alertify --save` or `bower install ng-alertify`.
