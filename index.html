@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <title>ng-alertify</title>
+  <script src="node_modules/es5-shim/es5-shim.js"></script>
+  <link rel="stylesheet" href="bower_components/alertify.js/themes/alertify.core.css" />
+  <link rel="stylesheet" href="bower_components/alertify.js/themes/alertify.default.css" />
+  <script src="bower_components/alertify.js/lib/alertify.js"></script>
+  <style>
+    #app {
+      padding: 5px;
+      margin: 10px 0px;
+      display: block;
+      border: 1px solid black;
+      border-radius: 5px;
+      white-space: pre;
+      font-family: monospace;
+    }
+    #app:before {
+      content: "using ng-alertify";
+      font-style: italic;
+      color: #555;
+    }
+  </style>
+</head>
+<body ng-app="App" ng-controller="AppController">
+  <h2>ng-alertify by <a href="https://www.kensho.com">Kensho</a></h2>
+
+  AngularJS wrapper around <a href="http://fabien-d.github.io/alertify.js/">alertify.js</a>.
+
+  <button ng-click="ask()">Show confirm dialog</button>
+
+  <p>Source at <a href="https://github.com/kensho/ng-alertify">kensho/ng-alertify</a>.</p>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="ng-alertify.js"></script>
+  <script id="app">
+    angular.module('App', ['Alertify'])
+      .run(function (Alertify) {
+        Alertify.success('Hello world!');
+        Alertify.log('Neutral message');
+        Alertify.error('Something went wrong');
+      })
+      .controller('AppController', function ($scope, Alertify) {
+        $scope.ask = function () {
+          Alertify.confirm('Are you sure?')
+            .then(function () {
+              Alertify.success('You are sure!');
+            }, function () {
+              Alertify.log('Never mind');
+            });
+        };
+      });
+  </script>
+</body>
+</html>
