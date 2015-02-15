@@ -38,6 +38,19 @@
         return defer.promise;
       };
 
+      // transform .prompt(message) into promise-returning method
+      alertifyProxy.prompt = function (message, defaultValue) {
+        var defer = $q.defer();
+        alertify.prompt(message, function (yes, answer) {
+          if (yes) {
+            defer.resolve(answer);
+          } else {
+            defer.reject();
+          }
+        }, defaultValue);
+        return defer.promise;
+      };
+
       return alertifyProxy;
     }]);
 }(window.angular, window.alertify));

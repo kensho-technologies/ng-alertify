@@ -17,6 +17,8 @@
 [ng-alertify-devdependencies-image]: https://david-dm.org/kensho/ng-alertify/dev-status.png
 [ng-alertify-devdependencies-url]: https://david-dm.org/kensho/ng-alertify#info=devDependencies
 
+[Demo](http://kensho.github.io/ng-alertify/)
+
 ## Install and use
 
 `npm install ng-alertify --save` or `bower install ng-alertify`.
@@ -32,10 +34,16 @@ angular.module('MyApp', ['Alertify'])
         function onOk() {...}, 
         function onCancel() { ... }
     );
+    Alertify.prompt('Your age', 21).then(
+        function onOk(answer) {...}, 
+        function onCancel() { ... }
+    );
   });
 ```
 
 Tested with [alertify.js](http://fabien-d.github.io/alertify.js/) v0.3.11
+
+Works well with [confirm-click](https://github.com/bahmutov/confirm-click).
 
 ## License
 
