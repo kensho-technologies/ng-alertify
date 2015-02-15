@@ -28,6 +28,10 @@ angular.module('MyApp', ['Alertify'])
     Alertify.success('Hello world!');
     Alertify.log('Neutral message');
     Alertify.error('Something went wrong');
+    Alertify.confirm('Are you sure?').then(
+        function onOk() {...}, 
+        function onCancel() { ... }
+    );
   });
 ```
 

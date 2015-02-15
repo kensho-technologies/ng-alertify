@@ -6,7 +6,7 @@ helpDescribe('ng-alertify', function () {
     name: 'alertify service',
     only: false,
     modules: 'Alertify',
-    inject: 'Alertify',
+    inject: ['Alertify', '$rootScope'],
     tests: function (deps) {
       it('has Alertify injected', function () {
         la(deps.Alertify);
@@ -39,6 +39,25 @@ helpDescribe('ng-alertify', function () {
         var logString = window.alertify.error.lastCall.args[0];
         la(logString.indexOf('<br>') !== -1);
         la(logString.indexOf('\n') === -1);
+      });
+
+      it('has promise-returning confirm', function (done) {
+        function confirm(message, cb) {
+          la(message === 'foo');
+          cb('ok');
+        }
+        var stub = sinon.stub(window.alertify, 'confirm', confirm);
+        deps.Alertify.confirm('foo')
+          .then(function (result) {
+            la(result === 'ok');
+          }, function rejected() {
+            la(false, 'unexpected rejection');
+          })
+          .finally(function () {
+            stub.restore();
+            done();
+          });
+        deps.$rootScope.$apply();
       });
     }
   });
