@@ -34,6 +34,10 @@ angular.module('MyApp', ['Alertify'])
         function onOk() {...}, 
         function onCancel() { ... }
     );
+    Alertify.prompt('Your age', 21).then(
+        function onOk(answer) {...}, 
+        function onCancel() { ... }
+    );
   });
 ```
 
