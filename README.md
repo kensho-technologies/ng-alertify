@@ -39,6 +39,8 @@ angular.module('MyApp', ['Alertify'])
 
 Tested with [alertify.js](http://fabien-d.github.io/alertify.js/) v0.3.11
 
+Works well with [confirm-click](https://github.com/bahmutov/confirm-click).
+
 ## License
 
 Author: Kensho &copy; 2015
