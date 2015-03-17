@@ -26,7 +26,7 @@
       });
 
       // transform .confirm(message) into promise-returning method
-      alertifyProxy.confirm = function (message) {
+      alertifyProxy.confirm = function (message, cssClass) {
         var defer = $q.defer();
         alertify.confirm(message, function (answer) {
           if (answer) {
@@ -34,12 +34,12 @@
           } else {
             defer.reject(answer);
           }
-        });
+        }, cssClass);
         return defer.promise;
       };
 
       // transform .prompt(message) into promise-returning method
-      alertifyProxy.prompt = function (message, defaultValue) {
+      alertifyProxy.prompt = function (message, defaultValue, cssClass) {
         var defer = $q.defer();
         alertify.prompt(message, function (yes, answer) {
           if (yes) {
@@ -47,7 +47,7 @@
           } else {
             defer.reject();
           }
-        }, defaultValue);
+        }, defaultValue, cssClass);
         return defer.promise;
       };
 

@@ -42,12 +42,13 @@ helpDescribe('ng-alertify', function () {
       });
 
       it('has promise-returning confirm', function (done) {
-        function confirm(message, cb) {
+        function confirm(message, cb, cssClass) {
           la(message === 'foo');
+          la(cssClass === 'bar-class');
           cb('ok');
         }
         var stub = sinon.stub(window.alertify, 'confirm', confirm);
-        deps.Alertify.confirm('foo')
+        deps.Alertify.confirm('foo', 'bar-class')
           .then(function (result) {
             la(result === 'ok');
           }, function rejected() {
