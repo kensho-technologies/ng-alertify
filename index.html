@@ -22,6 +22,9 @@
       font-style: italic;
       color: #555;
     }
+    .vertical-margin {
+      margin-top: 200px;
+    }
   </style>
 </head>
 <body ng-app="App" ng-controller="AppController">
@@ -31,6 +34,7 @@
 
   <button ng-click="ask()">Show confirm dialog</button>
   <button ng-click="prompt()">Show prompt dialog</button>
+  <button ng-click="askWithCssClass()">Show confirm dialog with css class</button>
 
   <p>Source at <a href="https://github.com/kensho/ng-alertify">kensho/ng-alertify</a>.</p>
 
@@ -56,6 +60,14 @@
           Alertify.prompt('How should I address you?', 'My friend')
             .then(function (title) {
               Alertify.success('Hi there, ' + title);
+            }, function () {
+              Alertify.log('Never mind');
+            });
+        };
+        $scope.askWithCssClass = function () {
+          Alertify.confirm('Are you sure?', 'vertical-margin')
+            .then(function () {
+              Alertify.success('You are sure!');
             }, function () {
               Alertify.log('Never mind');
             });
