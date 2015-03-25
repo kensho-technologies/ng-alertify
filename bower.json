@@ -14,7 +14,6 @@
     "package.json",
     "index.html"
   ],
-  "author": "Gleb Bahmutov <gleb@kensho.com>",
   "keywords": [
     "angular",
     "popup",
@@ -26,5 +25,9 @@
   "homepage": "https://github.com/kensho/ng-alertify",
   "devDependencies": {
     "alertify.js": "~0.3.11"
-  }
+  },
+  "authors": [
+    "Gleb Bahmutov <gleb@kensho.com>"
+  ],
+  "description": "AngularJS wrapper around alertify popup library"
 }
