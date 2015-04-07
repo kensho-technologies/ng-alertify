@@ -1,4 +1,4 @@
-/* global helpDescribe, ngDescribe, it, la, sinon */
+/* global helpDescribe, ngDescribe, it, xit, la, sinon */
 helpDescribe('ng-alertify', function () {
   var check = window.check;
 
@@ -22,6 +22,7 @@ helpDescribe('ng-alertify', function () {
         sinon.spy(deps.Alertify, 'success');
         deps.Alertify.success('everything is ok');
         la(deps.Alertify.success.called);
+        deps.Alertify.success.restore();
       });
 
       it('replaces new lines with break tags in log method', function () {
@@ -30,6 +31,7 @@ helpDescribe('ng-alertify', function () {
         var logString = window.alertify.log.lastCall.args[0];
         la(logString.indexOf('<br>') !== -1);
         la(logString.indexOf('\n') === -1);
+        window.alertify.log.restore();
       });
 
       it('replaces new lines with break tags in error method', function () {
@@ -39,6 +41,15 @@ helpDescribe('ng-alertify', function () {
         var logString = window.alertify.error.lastCall.args[0];
         la(logString.indexOf('<br>') !== -1);
         la(logString.indexOf('\n') === -1);
+        window.alertify.error.restore();
+      });
+
+      xit('accepts multiple string arguments', function () {
+        sinon.spy(window.alertify, 'error');
+        deps.Alertify.error('foo', 'bar', 'baz');
+        var logString = window.alertify.error.lastCall.args[0];
+        la(logString === 'foo bar baz');
+        window.alertify.error.restore();
       });
 
       it('has promise-returning confirm', function (done) {
