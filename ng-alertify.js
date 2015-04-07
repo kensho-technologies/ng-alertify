@@ -10,6 +10,16 @@
 
       var alertifyProxy = Object.create(alertify);
 
+      function anyToString(x) {
+        if (typeof x === 'string') {
+          return x;
+        }
+        if (x instanceof Error) {
+          return x.message;
+        }
+        return JSON.stringify(x, null, 2);
+      }
+
       function newlineToBreak(x) {
         return typeof x === 'string' ? x.replace(/\n/g, '<br>') : x;
       }
@@ -20,8 +30,9 @@
       // overwrite .log(), .error(), and other simple popups
       messageMethods.forEach(function (name) {
         alertifyProxy[name] = function () {
-          var args = Array.prototype.map.call(arguments, newlineToBreak);
-          return alertify[name].apply(alertify, args);
+          var args = Array.prototype.slice.call(arguments, 0);
+          var strings = args.map(anyToString).map(newlineToBreak);
+          return alertify[name].call(alertify, strings.join(' '));
         };
       });
 

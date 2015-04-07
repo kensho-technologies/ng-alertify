@@ -29,7 +29,8 @@ angular.module('MyApp', ['Alertify'])
   .run(function (Alertify) {
     Alertify.success('Hello world!');
     Alertify.log('Neutral message');
-    Alertify.error('Something went wrong');
+    Alertify.error('Something went wrong', 'multiple params, including', new Error('are ok'));
+    // displays "Something went wrong multiple params, including are ok"
     Alertify.confirm('Are you sure?').then(
         function onOk() {...}, 
         function onCancel() { ... }

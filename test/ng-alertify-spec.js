@@ -1,4 +1,4 @@
-/* global helpDescribe, ngDescribe, it, xit, la, sinon */
+/* global helpDescribe, ngDescribe, it, la, sinon */
 helpDescribe('ng-alertify', function () {
   var check = window.check;
 
@@ -44,11 +44,19 @@ helpDescribe('ng-alertify', function () {
         window.alertify.error.restore();
       });
 
-      xit('accepts multiple string arguments', function () {
+      it('accepts multiple string arguments', function () {
         sinon.spy(window.alertify, 'error');
         deps.Alertify.error('foo', 'bar', 'baz');
         var logString = window.alertify.error.lastCall.args[0];
         la(logString === 'foo bar baz');
+        window.alertify.error.restore();
+      });
+
+      it('supports Error instances', function () {
+        sinon.spy(window.alertify, 'error');
+        deps.Alertify.error('foo', new Error('bar'));
+        var logString = window.alertify.error.lastCall.args[0];
+        la(logString === 'foo bar');
         window.alertify.error.restore();
       });
 
