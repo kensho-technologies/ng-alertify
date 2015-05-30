@@ -23,6 +23,34 @@ module.exports = function(grunt) {
       }
     },
 
+    concat: {
+      options: {
+        banner: '/**\n' +
+          ' <%= pkg.name %>@<%= pkg.version %>\n' +
+          ' <%= pkg.description %>\n' +
+          ' <%= pkg.author %>\n' +
+          ' <%= pkg.homepage %>\n' +
+          '*/\n\n',
+        process: function(src, filepath) {
+          if (/\.css$/.test(filepath)) {
+            return '/* CSS ' + filepath + ' */\n' + src;
+          } else {
+            return src;
+          }
+        }
+      },
+      css: {
+        src: ['bower_components/alertify.js/themes/alertify.core.css',
+          'bower_components/alertify.js/themes/alertify.default.css'
+        ],
+        dest: 'dist/ng-alertify.css'
+      },
+      js: {
+        src: ['bower_components/alertify.js/lib/alertify.js', 'ng-alertify.js'],
+        dest: 'dist/ng-alertify.js'
+      },
+    },
+
     karma: {
       unit: {
         configFile: 'test/karma.conf.js'
@@ -35,7 +63,7 @@ module.exports = function(grunt) {
       },
       all: {
         files: ['*.js', 'test/*.js', 'package.json'],
-        tasks: ['jshint', 'test']
+        tasks: ['jshint', 'concat', 'test']
       }
     },
 
@@ -61,5 +89,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', ['karma']);
   grunt.registerTask('default',
-    ['nice-package', 'deps-ok', 'sync', 'jshint', 'test']);
+    ['nice-package', 'deps-ok', 'sync', 'jshint', 'concat', 'test']);
 };
