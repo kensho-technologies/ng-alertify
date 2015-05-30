@@ -12,9 +12,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        '../bower_components/alertify.js/lib/alertify.js',
         '../node_modules/angular/angular.js',
-        '../ng-alertify.js',
+        '../dist/ng-alertify.js',
         '../node_modules/check-types/src/check-types.js',
         '../node_modules/check-more-types/check-more-types.js',
         '../node_modules/lazy-ass/index.js',
