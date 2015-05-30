@@ -6,7 +6,10 @@ module.exports = function(grunt) {
     pkg: pkg,
 
     'deps-ok': {
-      skipBower: true
+      options: {
+        skipBower: true
+      },
+      dummy: {}
     },
 
     jshint: {
