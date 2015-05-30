@@ -77,9 +77,8 @@ module.exports = function(grunt) {
         'index.html',
         'node_modules/es5-shim/es5-shim.js',
         'bower_components/angular/angular.js',
-        'bower_components/alertify.js/lib/alertify.js',
-        'bower_components/alertify.js/themes/alertify.core.css',
-        'bower_components/alertify.js/themes/alertify.default.css'
+        'dist/ng-alertify.js',
+        'dist/ng-alertify.css'
       ]
     }
   });

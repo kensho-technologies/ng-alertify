@@ -22,7 +22,8 @@
 ## Install and use
 
 `npm install ng-alertify --save` or `bower install ng-alertify`.
-Include the `ng-alertify.js` script in your page and use `Alertify` module and dependency
+Include the `dist/ng-alertify.js` and `dist/ng-alertify/css` files in your page and 
+use `Alertify` module and dependency
 
 ```js
 angular.module('MyApp', ['Alertify'])
