@@ -1,7 +1,7 @@
 {
   "name": "ng-alertify",
   "description": "AngularJS wrapper around alertify popup library",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "author": "Gleb Bahmutov <gleb@kensho.com>",
   "bugs": {
     "url": "https://github.com/kensho/ng-alertify/issues"
