@@ -646,6 +646,13 @@
 (function (angular, alertify) {
 
   angular.module('Alertify', [])
+    // need name that does not clash with other libraries / modules
+    .constant('meta', {
+      name: 'ng-alertify',
+      description: 'AngularJS wrapper around alertify popup library',
+      version: '0.6.0',
+      author: 'Gleb Bahmutov <gleb@kensho.com>'
+    })
     .factory('Alertify', ['$q', function ($q) {
 
       if (typeof alertify === 'undefined') {

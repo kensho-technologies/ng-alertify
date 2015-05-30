@@ -2,6 +2,13 @@
 (function (angular, alertify) {
 
   angular.module('Alertify', [])
+    // need name that does not clash with other libraries / modules
+    .constant('meta', {
+      name: '%%name%%',
+      description: '%%description%%',
+      version: '%%version%%',
+      author: '%%author%%'
+    })
     .factory('Alertify', ['$q', function ($q) {
 
       if (typeof alertify === 'undefined') {

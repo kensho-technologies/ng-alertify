@@ -81,4 +81,33 @@ helpDescribe('ng-alertify', function () {
       });
     }
   });
+
+  ngDescribe({
+    name: 'alertify meta',
+    only: false,
+    modules: 'Alertify',
+    inject: 'meta',
+    tests: function (deps) {
+      // TODO: move to check-more-types
+      check.semver = function semver(value) {
+        if (!check.unemptyString(value)) {
+          return false;
+        }
+        var parts = value.split('.');
+        if (parts.length !== 3) {
+          return false;
+        }
+        return check.number(parseInt(parts[0])) &&
+          check.number(parseInt(parts[1])) &&
+          check.number(parseInt(parts[2]));
+      };
+
+      it('has meaningful meta', function () {
+        la(check.object(deps.meta));
+        la(check.unemptyString(deps.meta.name));
+        la(check.unemptyString(deps.meta.version));
+        la(check.semver(deps.meta.version));
+      });
+    }
+  });
 });

@@ -1,8 +1,9 @@
 module.exports = function(grunt) {
   'use strict';
 
+  var pkg = grunt.file.readJSON('package.json');
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    pkg: pkg,
 
     jshint: {
       all: [
@@ -34,6 +35,11 @@ module.exports = function(grunt) {
         process: function(src, filepath) {
           if (/\.css$/.test(filepath)) {
             return '/* CSS ' + filepath + ' */\n' + src;
+          } else if (/ng-alertify\.js$/.test(filepath)) {
+            ['name', 'description', 'version', 'author'].forEach(function (tag) {
+              src = src.replace('%%' + tag + '%%', pkg[tag]);
+            });
+            return src;
           } else {
             return src;
           }
