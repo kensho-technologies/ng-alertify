@@ -22,14 +22,17 @@
 ## Install and use
 
 `npm install ng-alertify --save` or `bower install ng-alertify`.
-Include the `ng-alertify.js` script in your page and use `Alertify` module and dependency
+Include the `dist/ng-alertify.js` and `dist/ng-alertify/css` files in your page and 
+use `Alertify` module and dependency
 
 ```js
 angular.module('MyApp', ['Alertify'])
   .run(function (Alertify) {
     Alertify.success('Hello world!');
     Alertify.log('Neutral message');
-    Alertify.error('Something went wrong');
+    Alertify.error('Something went wrong', 
+    'multiple params, including errors', new Error('are ok'));
+    // displays "Something went wrong multiple params, including errors are ok"
     Alertify.confirm('Are you sure?').then(
         function onOk() {...}, 
         function onCancel() { ... }

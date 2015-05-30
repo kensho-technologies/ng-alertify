@@ -2,6 +2,13 @@
 (function (angular, alertify) {
 
   angular.module('Alertify', [])
+    // need name that does not clash with other libraries / modules
+    .constant('meta', {
+      name: '%%name%%',
+      description: '%%description%%',
+      version: '%%version%%',
+      author: '%%author%%'
+    })
     .factory('Alertify', ['$q', function ($q) {
 
       if (typeof alertify === 'undefined') {
@@ -9,6 +16,16 @@
       }
 
       var alertifyProxy = Object.create(alertify);
+
+      function anyToString(x) {
+        if (typeof x === 'string') {
+          return x;
+        }
+        if (x instanceof Error) {
+          return x.message;
+        }
+        return JSON.stringify(x, null, 2);
+      }
 
       function newlineToBreak(x) {
         return typeof x === 'string' ? x.replace(/\n/g, '<br>') : x;
@@ -20,13 +37,14 @@
       // overwrite .log(), .error(), and other simple popups
       messageMethods.forEach(function (name) {
         alertifyProxy[name] = function () {
-          var args = Array.prototype.map.call(arguments, newlineToBreak);
-          return alertify[name].apply(alertify, args);
+          var args = Array.prototype.slice.call(arguments, 0);
+          var strings = args.map(anyToString).map(newlineToBreak);
+          return alertify[name].call(alertify, strings.join(' '));
         };
       });
 
       // transform .confirm(message) into promise-returning method
-      alertifyProxy.confirm = function (message) {
+      alertifyProxy.confirm = function (message, cssClass) {
         var defer = $q.defer();
         alertify.confirm(message, function (answer) {
           if (answer) {
@@ -34,12 +52,12 @@
           } else {
             defer.reject(answer);
           }
-        });
+        }, cssClass);
         return defer.promise;
       };
 
       // transform .prompt(message) into promise-returning method
-      alertifyProxy.prompt = function (message, defaultValue) {
+      alertifyProxy.prompt = function (message, defaultValue, cssClass) {
         var defer = $q.defer();
         alertify.prompt(message, function (yes, answer) {
           if (yes) {
@@ -47,7 +65,7 @@
           } else {
             defer.reject();
           }
-        }, defaultValue);
+        }, defaultValue, cssClass);
         return defer.promise;
       };
 
