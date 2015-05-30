@@ -73,6 +73,14 @@ module.exports = function(grunt) {
       }
     },
 
+    'clean-console': {
+      all: {
+        options: {
+          url: 'index.html'
+        }
+      }
+    },
+
     'gh-pages': {
       options: {
         base: '.'
@@ -94,5 +102,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', ['karma']);
   grunt.registerTask('default',
-    ['nice-package', 'deps-ok', 'sync', 'jshint', 'concat', 'test']);
+    ['nice-package', 'deps-ok', 'sync', 'jshint', 'concat', 'test', 'clean-console']);
 };
