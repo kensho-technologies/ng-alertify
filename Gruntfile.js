@@ -5,6 +5,10 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: pkg,
 
+    'deps-ok': {
+      skipBower: true
+    },
+
     jshint: {
       all: [
         'ng-alertify.js'

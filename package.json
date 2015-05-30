@@ -1,7 +1,7 @@
 {
   "name": "ng-alertify",
   "description": "AngularJS wrapper around alertify popup library",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "author": "Gleb Bahmutov <gleb@kensho.com>",
   "bugs": {
     "url": "https://github.com/kensho/ng-alertify/issues"
@@ -18,7 +18,7 @@
     "grunt-contrib-concat": "0.5.1",
     "grunt-contrib-jshint": "0.11.2",
     "grunt-contrib-watch": "0.6.1",
-    "grunt-deps-ok": "0.7.1",
+    "grunt-deps-ok": "0.8.0",
     "grunt-gh-pages": "0.10.0",
     "grunt-karma": "0.11.0",
     "grunt-nice-package": "0.9.2",
