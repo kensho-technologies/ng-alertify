@@ -28,10 +28,14 @@ use `Alertify` module and dependency
 ```js
 angular.module('MyApp', ['Alertify'])
   .run(function (Alertify) {
+    // these messages disappear after a few seconds
     Alertify.success('Hello world!');
     Alertify.log('Neutral message');
     Alertify.error('Something went wrong', 
     'multiple params, including errors', new Error('are ok'));
+
+    // these modals require user to close them
+    Alertify.alert('Hi there');
     // displays "Something went wrong multiple params, including errors are ok"
     Alertify.confirm('Are you sure?').then(
         function onOk() {...}, 

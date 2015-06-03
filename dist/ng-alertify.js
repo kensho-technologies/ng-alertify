@@ -1,5 +1,5 @@
 /**
- ng-alertify@0.7.2
+ ng-alertify@0.8.0
  AngularJS wrapper around alertify popup library
  Gleb Bahmutov <gleb@kensho.com>
  https://github.com/kensho/ng-alertify
@@ -650,7 +650,7 @@
     .constant('meta', {
       name: 'ng-alertify',
       description: 'AngularJS wrapper around alertify popup library',
-      version: '0.7.2',
+      version: '0.8.0',
       author: 'Gleb Bahmutov <gleb@kensho.com>'
     })
     .factory('Alertify', ['$q', function ($q) {
@@ -676,7 +676,7 @@
       }
 
       // make sure the newlines are formatted in the output html
-      var messageMethods = ['log', 'error', 'success'];
+      var messageMethods = ['log', 'error', 'success', 'alert'];
 
       // overwrite .log(), .error(), and other simple popups
       messageMethods.forEach(function (name) {
