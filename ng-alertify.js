@@ -32,7 +32,7 @@
       }
 
       // make sure the newlines are formatted in the output html
-      var messageMethods = ['log', 'error', 'success'];
+      var messageMethods = ['log', 'error', 'success', 'alert'];
 
       // overwrite .log(), .error(), and other simple popups
       messageMethods.forEach(function (name) {
