@@ -15,11 +15,11 @@
     "index.html"
   ],
   "keywords": [
-    "angular",
-    "popup",
-    "message",
     "alertify",
+    "angular",
     "angularjs",
+    "message",
+    "popup",
     "wrapper"
   ],
   "homepage": "https://github.com/kensho/ng-alertify",
