@@ -35,10 +35,17 @@
       };
     });
 
-    alertifyProxy.json = function alertifyJson(object) {
+    alertifyProxy.json = function alertifyJson(title, object) {
+      if (typeof title === 'object') {
+        object = title;
+        title = 'JSON output';
+      }
+      if (typeof title !== 'string') {
+        throw new Error('Expected title to be a string');
+      }
       // pop an "alert" style dialog
-      var str = JSON.stringify(object, null, 2);
-      alertify.prompt('JSON output', undefined, str);
+      var str = JSON.stringify(object);
+      alertify.prompt(title, undefined, str);
     };
 
     // transform .confirm(message) into promise-returning method
