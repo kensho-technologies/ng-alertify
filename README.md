@@ -45,6 +45,8 @@ angular.module('MyApp', ['Alertify'])
         function onOk(answer) {...}, 
         function onCancel() { ... }
     );
+    // Pops dialog with JSON of the object
+    Alertify.json(object);
   });
 ```
 

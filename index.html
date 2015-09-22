@@ -34,6 +34,7 @@
   <button ng-click="ask()">Show confirm dialog</button>
   <button ng-click="prompt()">Show prompt dialog</button>
   <button ng-click="askWithCssClass()">Show confirm dialog with css class</button>
+  <button ng-click="json()">Show JSON object</button>
 
   <p>Source at <a href="https://github.com/kensho/ng-alertify">kensho/ng-alertify</a>.</p>
 
@@ -74,6 +75,16 @@
             }, function () {
               Alertify.log('Never mind');
             });
+        };
+        $scope.json = function json() {
+          var largeObject = {
+            foo: 'this is a foo',
+            bar: {
+              name: 'bar inside of foo'
+            },
+            list: ['something', 'else', 'nothing']
+          };
+          Alertify.json(largeObject);
         };
       });
   </script>

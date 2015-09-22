@@ -35,8 +35,14 @@
       };
     });
 
+    alertifyProxy.json = function alertifyJson(object) {
+      // pop an "alert" style dialog
+      var str = JSON.stringify(object, null, 2);
+      alertify.prompt('JSON output', undefined, str);
+    };
+
     // transform .confirm(message) into promise-returning method
-    alertifyProxy.confirm = function (message, cssClass) {
+    alertifyProxy.confirm = function alertifyConfirm(message, cssClass) {
       var defer = $q.defer();
       alertify.confirm(message, function (answer) {
         if (answer) {
@@ -49,7 +55,7 @@
     };
 
     // transform .prompt(message) into promise-returning method
-    alertifyProxy.prompt = function (message, defaultValue, cssClass) {
+    alertifyProxy.prompt = function alertifyPrompt(message, defaultValue, cssClass) {
       var defer = $q.defer();
       alertify.prompt(message, function (yes, answer) {
         if (yes) {
