@@ -1,6 +1,6 @@
 {
   "name": "ng-alertify",
-  "main": "ng-alertify.js",
+  "main": "dist/ng-alertify.js",
   "version": "0.9.0",
   "license": "MIT",
   "ignore": [
