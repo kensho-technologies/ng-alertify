@@ -1,5 +1,5 @@
 /**
- ng-alertify@0.9.1
+ ng-alertify@1.0.1
  AngularJS wrapper around alertify popup library
  Gleb Bahmutov <gleb@kensho.com>
  https://github.com/kensho/ng-alertify
@@ -726,7 +726,7 @@
     .constant('meta', {
       name: 'ng-alertify',
       description: 'AngularJS wrapper around alertify popup library',
-      version: '0.9.1',
+      version: '1.0.1',
       author: 'Gleb Bahmutov <gleb@kensho.com>'
     })
     .factory('Alertify', ['$q', alertifyFactory]);
