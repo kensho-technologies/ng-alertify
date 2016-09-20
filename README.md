@@ -8,13 +8,13 @@
 [![dependencies][ng-alertify-dependencies-image] ][ng-alertify-dependencies-url]
 [![devdependencies][ng-alertify-devdependencies-image] ][ng-alertify-devdependencies-url]
 
-[ng-alertify-icon]: https://nodei.co/npm/ng-alertify.png?downloads=true
+[ng-alertify-icon]: https://nodei.co/npm/ng-alertify.svg?downloads=true
 [ng-alertify-url]: https://npmjs.org/package/ng-alertify
-[ng-alertify-ci-image]: https://travis-ci.org/kensho/ng-alertify.png?branch=master
+[ng-alertify-ci-image]: https://travis-ci.org/kensho/ng-alertify.svg?branch=master
 [ng-alertify-ci-url]: https://travis-ci.org/kensho/ng-alertify
-[ng-alertify-dependencies-image]: https://david-dm.org/kensho/ng-alertify.png
+[ng-alertify-dependencies-image]: https://david-dm.org/kensho/ng-alertify.svg
 [ng-alertify-dependencies-url]: https://david-dm.org/kensho/ng-alertify
-[ng-alertify-devdependencies-image]: https://david-dm.org/kensho/ng-alertify/dev-status.png
+[ng-alertify-devdependencies-image]: https://david-dm.org/kensho/ng-alertify/dev-status.svg
 [ng-alertify-devdependencies-url]: https://david-dm.org/kensho/ng-alertify#info=devDependencies
 
 [Demo](http://kensho.github.io/ng-alertify/)
@@ -22,7 +22,7 @@
 ## Install and use
 
 `npm install ng-alertify --save` or `bower install ng-alertify`.
-Include the `dist/ng-alertify.js` and `dist/ng-alertify/css` files in your page and 
+Include the `dist/ng-alertify.js` and `dist/ng-alertify/css` files in your page and
 use `Alertify` module and dependency
 
 ```js
@@ -31,18 +31,18 @@ angular.module('MyApp', ['Alertify'])
     // these messages disappear after a few seconds
     Alertify.success('Hello world!');
     Alertify.log('Neutral message');
-    Alertify.error('Something went wrong', 
+    Alertify.error('Something went wrong',
     'multiple params, including errors', new Error('are ok'));
 
     // these modals require user to close them
     Alertify.alert('Hi there');
     // displays "Something went wrong multiple params, including errors are ok"
     Alertify.confirm('Are you sure?').then(
-        function onOk() {...}, 
+        function onOk() {...},
         function onCancel() { ... }
     );
     Alertify.prompt('Your age', 21).then(
-        function onOk(answer) {...}, 
+        function onOk(answer) {...},
         function onCancel() { ... }
     );
     // Pops dialog with JSON of the object
