@@ -1,6 +1,8 @@
-# ng-alertify
+# ng-alertify [DEPRECATED]
 
-> AngularJS wrapper around [alertify.js](http://fabien-d.github.io/alertify.js/)
+> This package has been deprecated as it is no longer used by Kensho internally and we do not plan to continue maintaining it. Feel free to fork it or continue to use it as-is!
+
+AngularJS wrapper around [alertify.js](http://fabien-d.github.io/alertify.js/)
 
 [![NPM][ng-alertify-icon] ][ng-alertify-url]
 
